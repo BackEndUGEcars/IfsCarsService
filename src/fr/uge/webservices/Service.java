@@ -72,7 +72,7 @@ public class Service {
 	public boolean buyCar(long carId, String login, String password) throws RemoteException, ServiceException {
 		var car = cars.getCar(carId);
 		
-		if (car == null || !bank.isAnAccount(login, password)) return false;
+		if (car == null || !bank.isAnAccount(login, password) || !car.isSellable()) return false;
 		
 		
 		
@@ -95,7 +95,10 @@ public class Service {
 		return c.activeCurrencies("");
 	}
 	
-	public boolean addBasket(long carId) {
+	public boolean addBasket(long carId) throws RemoteException {
+		var car = cars.getCar(carId);
+		if (car == null || !car.isSellable()) return false;
+		
 		return basket.add(carId);
 	}
 	
