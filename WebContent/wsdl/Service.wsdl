@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webservices.uge.fr" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webservices.uge.fr" xmlns:intf="http://webservices.uge.fr" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webservices.uge.fr" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getBuyableCarsJson">
+    <complexType>
+     <sequence>
+      <element name="currency" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBuyableCarsJsonResponse">
+    <complexType>
+     <sequence>
+      <element name="getBuyableCarsJsonReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeBasket">
+    <complexType>
+     <sequence>
+      <element name="carId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeBasketResponse">
+    <complexType>
+     <sequence>
+      <element name="removeBasketReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="basketToJson">
+    <complexType/>
+   </element>
+   <element name="basketToJsonResponse">
+    <complexType>
+     <sequence>
+      <element name="basketToJsonReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="buyCar">
+    <complexType>
+     <sequence>
+      <element name="carId" type="xsd:long"/>
+      <element name="login" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="buyCarResponse">
+    <complexType>
+     <sequence>
+      <element name="buyCarReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getActiveCurencies">
+    <complexType/>
+   </element>
+   <element name="getActiveCurenciesResponse">
+    <complexType>
+     <sequence>
+      <element name="getActiveCurenciesReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addBasket">
+    <complexType>
+     <sequence>
+      <element name="carId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addBasketResponse">
+    <complexType>
+     <sequence>
+      <element name="addBasketReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isInBasket">
+    <complexType>
+     <sequence>
+      <element name="carId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="isInBasketResponse">
+    <complexType>
+     <sequence>
+      <element name="isInBasketReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getBuyableCarsJsonRequest">
+
+      <wsdl:part element="impl:getBuyableCarsJson" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buyCarResponse">
+
+      <wsdl:part element="impl:buyCarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getActiveCurenciesRequest">
+
+      <wsdl:part element="impl:getActiveCurencies" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getActiveCurenciesResponse">
+
+      <wsdl:part element="impl:getActiveCurenciesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addBasketRequest">
+
+      <wsdl:part element="impl:addBasket" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addBasketResponse">
+
+      <wsdl:part element="impl:addBasketResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isInBasketResponse">
+
+      <wsdl:part element="impl:isInBasketResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeBasketRequest">
+
+      <wsdl:part element="impl:removeBasket" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="isInBasketRequest">
+
+      <wsdl:part element="impl:isInBasket" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buyCarRequest">
+
+      <wsdl:part element="impl:buyCar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeBasketResponse">
+
+      <wsdl:part element="impl:removeBasketResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="basketToJsonResponse">
+
+      <wsdl:part element="impl:basketToJsonResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBuyableCarsJsonResponse">
+
+      <wsdl:part element="impl:getBuyableCarsJsonResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="basketToJsonRequest">
+
+      <wsdl:part element="impl:basketToJson" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Service">
+
+      <wsdl:operation name="getBuyableCarsJson">
+
+         <wsdl:input message="impl:getBuyableCarsJsonRequest" name="getBuyableCarsJsonRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBuyableCarsJsonResponse" name="getBuyableCarsJsonResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeBasket">
+
+         <wsdl:input message="impl:removeBasketRequest" name="removeBasketRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeBasketResponse" name="removeBasketResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="basketToJson">
+
+         <wsdl:input message="impl:basketToJsonRequest" name="basketToJsonRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:basketToJsonResponse" name="basketToJsonResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="buyCar">
+
+         <wsdl:input message="impl:buyCarRequest" name="buyCarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:buyCarResponse" name="buyCarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getActiveCurencies">
+
+         <wsdl:input message="impl:getActiveCurenciesRequest" name="getActiveCurenciesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getActiveCurenciesResponse" name="getActiveCurenciesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addBasket">
+
+         <wsdl:input message="impl:addBasketRequest" name="addBasketRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addBasketResponse" name="addBasketResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isInBasket">
+
+         <wsdl:input message="impl:isInBasketRequest" name="isInBasketRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:isInBasketResponse" name="isInBasketResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServiceSoapBinding" type="impl:Service">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getBuyableCarsJson">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBuyableCarsJsonRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBuyableCarsJsonResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeBasket">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeBasketRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeBasketResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="basketToJson">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="basketToJsonRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="basketToJsonResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="buyCar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="buyCarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="buyCarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getActiveCurencies">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getActiveCurenciesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getActiveCurenciesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addBasket">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addBasketRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addBasketResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="isInBasket">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="isInBasketRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="isInBasketResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServiceService">
+
+      <wsdl:port binding="impl:ServiceSoapBinding" name="Service">
+
+         <wsdlsoap:address location="http://localhost:8080/IfsCarsService/services/Service"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
