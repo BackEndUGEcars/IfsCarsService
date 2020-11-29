@@ -31,7 +31,13 @@ public class Service {
 		bank = new BankServiceServiceLocator().getBankService();
 	}
 	
-	
+	/**
+	 * get all buyable cars with the price convert to currency 
+	 * @param currency string to convert price ex: USD 
+	 * @return jsonString
+	 * @throws RemoteException
+	 * @throws ServiceException
+	 */
 	@SuppressWarnings("unchecked")
 	public String getBuyableCarsJson(String currency) throws RemoteException, ServiceException{
 		if (currency == null || currency.equals("EUR") || currency.isBlank()) return cars.getBuyableCarsJson();
@@ -107,12 +113,23 @@ public class Service {
 		
 	}
 
-	
-	public String getActiveCurencies() throws ServiceException, RemoteException {
+	/**
+	 * Get all active currencies 
+	 * @return string of active currencies separate buy ;
+	 * @throws ServiceException
+	 * @throws RemoteException
+	 */
+	public String getActiveCurrencies() throws ServiceException, RemoteException {
 		var c = new CurrencyServerLocator().getCurrencyServerSoap();
 		return c.activeCurrencies("");
 	}
 	
+	/**
+	 * adding to basket
+	 * @param carId
+	 * @return true if carId is added to basket
+	 * @throws RemoteException
+	 */
 	public boolean addBasket(long carId) throws RemoteException {
 		var car = cars.getCar(carId);
 		if (car == null || !car.isSellable()) return false;
@@ -120,14 +137,30 @@ public class Service {
 		return basket.add(carId);
 	}
 	
+	/**
+	 * removing from basket
+	 * @param carId 
+	 * @return true if carId is removed from basket
+	 */
 	public boolean removeBasket(long carId) {
 		return basket.remove(carId);
 	}
 	
+	/**
+	 * Check if carId is in the basket
+	 * @param carId
+	 * @return return if carId is in the basket
+	 */
 	public boolean isInBasket(long carId) {
 		return basket.contains(carId);
 	}
 	
+	
+	/**
+	 * 
+	 * @return the content of the basket as a JsonString
+	 * @throws RemoteException
+	 */
 	public String basketToJson() throws RemoteException {
 		var sj = new StringJoiner(", ", "[", "]");
 		for (Long carId : basket) {

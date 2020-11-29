@@ -23,12 +23,12 @@
       <operation name="getBuyableCarsJson" qname="operNS:getBuyableCarsJson" xmlns:operNS="http://webservices.uge.fr" returnQName="retNS:getBuyableCarsJsonReturn" xmlns:retNS="http://webservices.uge.fr" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:currency" xmlns:pns="http://webservices.uge.fr" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="getActiveCurencies" qname="operNS:getActiveCurencies" xmlns:operNS="http://webservices.uge.fr" returnQName="retNS:getActiveCurenciesReturn" xmlns:retNS="http://webservices.uge.fr" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-      </operation>
       <operation name="buyCar" qname="operNS:buyCar" xmlns:operNS="http://webservices.uge.fr" returnQName="retNS:buyCarReturn" xmlns:retNS="http://webservices.uge.fr" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:carId" xmlns:pns="http://webservices.uge.fr" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:login" xmlns:pns="http://webservices.uge.fr" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:password" xmlns:pns="http://webservices.uge.fr" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getActiveCurrencies" qname="operNS:getActiveCurrencies" xmlns:operNS="http://webservices.uge.fr" returnQName="retNS:getActiveCurrenciesReturn" xmlns:retNS="http://webservices.uge.fr" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
       </operation>
       <operation name="removeBasket" qname="operNS:removeBasket" xmlns:operNS="http://webservices.uge.fr" returnQName="retNS:removeBasketReturn" xmlns:retNS="http://webservices.uge.fr" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:carId" xmlns:pns="http://webservices.uge.fr" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
@@ -41,7 +41,7 @@
       <operation name="isInBasket" qname="operNS:isInBasket" xmlns:operNS="http://webservices.uge.fr" returnQName="retNS:isInBasketReturn" xmlns:retNS="http://webservices.uge.fr" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:carId" xmlns:pns="http://webservices.uge.fr" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <parameter name="allowedMethods" value="addBasket basketToJson isInBasket getActiveCurencies buyCar removeBasket getBuyableCarsJson"/>
+      <parameter name="allowedMethods" value="getActiveCurrencies addBasket basketToJson isInBasket buyCar removeBasket getBuyableCarsJson"/>
 
   </service>
 </deployment>

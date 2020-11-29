@@ -18,16 +18,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="getActiveCurencies">
-    <complexType/>
-   </element>
-   <element name="getActiveCurenciesResponse">
-    <complexType>
-     <sequence>
-      <element name="getActiveCurenciesReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="buyCar">
     <complexType>
      <sequence>
@@ -41,6 +31,16 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="buyCarReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getActiveCurrencies">
+    <complexType/>
+   </element>
+   <element name="getActiveCurrenciesResponse">
+    <complexType>
+     <sequence>
+      <element name="getActiveCurrenciesReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -115,22 +115,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getActiveCurenciesRequest">
-
-      <wsdl:part element="impl:getActiveCurencies" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="getActiveCurenciesResponse">
-
-      <wsdl:part element="impl:getActiveCurenciesResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="addBasketRequest">
 
       <wsdl:part element="impl:addBasket" name="parameters">
@@ -179,6 +163,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="getActiveCurrenciesResponse">
+
+      <wsdl:part element="impl:getActiveCurrenciesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="removeBasketResponse">
 
       <wsdl:part element="impl:removeBasketResponse" name="parameters">
@@ -198,6 +190,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="getBuyableCarsJsonResponse">
 
       <wsdl:part element="impl:getBuyableCarsJsonResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getActiveCurrenciesRequest">
+
+      <wsdl:part element="impl:getActiveCurrencies" name="parameters">
 
       </wsdl:part>
 
@@ -225,18 +225,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getActiveCurencies">
-
-         <wsdl:input message="impl:getActiveCurenciesRequest" name="getActiveCurenciesRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getActiveCurenciesResponse" name="getActiveCurenciesResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="buyCar">
 
          <wsdl:input message="impl:buyCarRequest" name="buyCarRequest">
@@ -244,6 +232,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:buyCarResponse" name="buyCarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getActiveCurrencies">
+
+         <wsdl:input message="impl:getActiveCurrenciesRequest" name="getActiveCurrenciesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getActiveCurrenciesResponse" name="getActiveCurrenciesResponse">
 
        </wsdl:output>
 
@@ -321,24 +321,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getActiveCurencies">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getActiveCurenciesRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getActiveCurenciesResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="buyCar">
 
          <wsdlsoap:operation soapAction=""/>
@@ -350,6 +332,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="buyCarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getActiveCurrencies">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getActiveCurrenciesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getActiveCurrenciesResponse">
 
             <wsdlsoap:body use="literal"/>
 

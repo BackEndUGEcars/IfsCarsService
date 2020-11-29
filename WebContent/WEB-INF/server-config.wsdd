@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -36,12 +36,12 @@
   <ns2:operation name="getBuyableCarsJson" qname="ns1:getBuyableCarsJson" returnQName="ns1:getBuyableCarsJsonReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://webservices.uge.fr" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
    <ns2:parameter qname="ns1:currency" type="xsd:string"/>
   </ns2:operation>
-  <ns1:operation name="getActiveCurencies" qname="ns2:getActiveCurencies" returnQName="ns2:getActiveCurenciesReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://webservices.uge.fr" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:operation name="buyCar" qname="ns3:buyCar" returnQName="ns3:buyCarReturn" returnType="xsd:int" soapAction="" xmlns:ns3="http://webservices.uge.fr" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns3:carId" type="xsd:long"/>
-   <ns1:parameter qname="ns3:login" type="xsd:string"/>
-   <ns1:parameter qname="ns3:password" type="xsd:string"/>
+  <ns1:operation name="buyCar" qname="ns2:buyCar" returnQName="ns2:buyCarReturn" returnType="xsd:int" soapAction="" xmlns:ns2="http://webservices.uge.fr" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:carId" type="xsd:long"/>
+   <ns1:parameter qname="ns2:login" type="xsd:string"/>
+   <ns1:parameter qname="ns2:password" type="xsd:string"/>
   </ns1:operation>
+  <ns1:operation name="getActiveCurrencies" qname="ns3:getActiveCurrencies" returnQName="ns3:getActiveCurrenciesReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://webservices.uge.fr" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   <ns1:operation name="removeBasket" qname="ns4:removeBasket" returnQName="ns4:removeBasketReturn" returnType="xsd:boolean" soapAction="" xmlns:ns4="http://webservices.uge.fr" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns4:carId" type="xsd:long"/>
   </ns1:operation>
@@ -52,7 +52,7 @@
   <ns1:operation name="isInBasket" qname="ns7:isInBasket" returnQName="ns7:isInBasketReturn" returnType="xsd:boolean" soapAction="" xmlns:ns7="http://webservices.uge.fr" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns7:carId" type="xsd:long"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="addBasket basketToJson isInBasket getActiveCurencies buyCar removeBasket getBuyableCarsJson"/>
+  <ns1:parameter name="allowedMethods" value="getActiveCurrencies addBasket basketToJson isInBasket buyCar removeBasket getBuyableCarsJson"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="Service"/>
   <ns1:parameter name="className" value="fr.uge.webservices.Service"/>
