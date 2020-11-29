@@ -132,7 +132,7 @@ public class Service {
 	 */
 	public boolean addBasket(long carId) throws RemoteException {
 		var car = cars.getCar(carId);
-		if (car == null || !car.isSellable()) return false;
+		if (car == null || !car.isSellable() || car.isRented() != -1) return false;
 		
 		return basket.add(carId);
 	}
