@@ -76,7 +76,7 @@ public class Service {
 		if(bank.amountAvailable(login, password, p)) {
 			bank.send(login, password, p);
 			cars.removeCar(carId);
-			removeBasket(carId);
+			removeCart(carId);
 			return true;
 		} else {
 			return false;
@@ -97,11 +97,11 @@ public class Service {
 		return cart.add(carId);
 	}
 	
-	public boolean removeBasket(long carId) {
+	public boolean removeCart(long carId) {
 		return cart.remove(carId);
 	}
 	
-	public boolean isInBasket(long carId) {
+	public boolean inCart(long carId) {
 		return cart.contains(carId);
 	}
 	
@@ -115,9 +115,6 @@ public class Service {
 		return "{" + sj.toString() + "}";
 	}
 	
-	public boolean inCart(long carId) {
-		return cart.contains(carId);
-	}
 	
 
 }
