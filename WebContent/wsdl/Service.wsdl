@@ -18,27 +18,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="removeBasket">
-    <complexType>
-     <sequence>
-      <element name="carId" type="xsd:long"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="removeBasketResponse">
-    <complexType>
-     <sequence>
-      <element name="removeBasketReturn" type="xsd:boolean"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="basketToJson">
+   <element name="getActiveCurencies">
     <complexType/>
    </element>
-   <element name="basketToJsonResponse">
+   <element name="getActiveCurenciesResponse">
     <complexType>
      <sequence>
-      <element name="basketToJsonReturn" type="xsd:string"/>
+      <element name="getActiveCurenciesReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -54,17 +40,21 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="buyCarResponse">
     <complexType>
      <sequence>
-      <element name="buyCarReturn" type="xsd:boolean"/>
+      <element name="buyCarReturn" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getActiveCurencies">
-    <complexType/>
-   </element>
-   <element name="getActiveCurenciesResponse">
+   <element name="removeBasket">
     <complexType>
      <sequence>
-      <element name="getActiveCurenciesReturn" type="xsd:string"/>
+      <element name="carId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeBasketResponse">
+    <complexType>
+     <sequence>
+      <element name="removeBasketReturn" type="xsd:boolean"/>
      </sequence>
     </complexType>
    </element>
@@ -79,6 +69,16 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="addBasketReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="basketToJson">
+    <complexType/>
+   </element>
+   <element name="basketToJsonResponse">
+    <complexType>
+     <sequence>
+      <element name="basketToJsonReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -225,25 +225,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="removeBasket">
+      <wsdl:operation name="getActiveCurencies">
 
-         <wsdl:input message="impl:removeBasketRequest" name="removeBasketRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:removeBasketResponse" name="removeBasketResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="basketToJson">
-
-         <wsdl:input message="impl:basketToJsonRequest" name="basketToJsonRequest">
+         <wsdl:input message="impl:getActiveCurenciesRequest" name="getActiveCurenciesRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:basketToJsonResponse" name="basketToJsonResponse">
+         <wsdl:output message="impl:getActiveCurenciesResponse" name="getActiveCurenciesResponse">
 
        </wsdl:output>
 
@@ -261,13 +249,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getActiveCurencies">
+      <wsdl:operation name="removeBasket">
 
-         <wsdl:input message="impl:getActiveCurenciesRequest" name="getActiveCurenciesRequest">
+         <wsdl:input message="impl:removeBasketRequest" name="removeBasketRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:getActiveCurenciesResponse" name="getActiveCurenciesResponse">
+         <wsdl:output message="impl:removeBasketResponse" name="removeBasketResponse">
 
        </wsdl:output>
 
@@ -280,6 +268,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:addBasketResponse" name="addBasketResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="basketToJson">
+
+         <wsdl:input message="impl:basketToJsonRequest" name="basketToJsonRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:basketToJsonResponse" name="basketToJsonResponse">
 
        </wsdl:output>
 
@@ -321,35 +321,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="removeBasket">
+      <wsdl:operation name="getActiveCurencies">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="removeBasketRequest">
+         <wsdl:input name="getActiveCurenciesRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="removeBasketResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="basketToJson">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="basketToJsonRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="basketToJsonResponse">
+         <wsdl:output name="getActiveCurenciesResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -375,17 +357,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getActiveCurencies">
+      <wsdl:operation name="removeBasket">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="getActiveCurenciesRequest">
+         <wsdl:input name="removeBasketRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="getActiveCurenciesResponse">
+         <wsdl:output name="removeBasketResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -404,6 +386,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="addBasketResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="basketToJson">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="basketToJsonRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="basketToJsonResponse">
 
             <wsdlsoap:body use="literal"/>
 

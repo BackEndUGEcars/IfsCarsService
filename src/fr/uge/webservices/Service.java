@@ -24,7 +24,7 @@ public class Service {
 	private final ICarDataBase cars; 
 	private final BankService bank;
 	
-	private final Set<Long> cart = new HashSet<>();
+	private final Set<Long> basket = new HashSet<>();
 
 	public Service() throws RemoteException, ServiceException, MalformedURLException, NotBoundException {
 		cars = (ICarDataBase) Naming.lookup("rmi://localhost:1099/CarDataBase");
@@ -58,28 +58,51 @@ public class Service {
 	            
 	            sj.add(jo.toJSONString());
 	        }
-	        jsonObject.put("cars", sj.toString());
+	        jsonObject.put("cars", (JSONArray) parser.parse(sj.toString()));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "";
 		}
-		return jsonObject.toJSONString();
+		var tmpRes = jsonObject.toJSONString();
+		tmpRes = tmpRes.replaceAll("\\\\", "");
+		return tmpRes;
 		
 		
 	}
 	
-	public boolean buyCar(long carId, String login, String password) throws RemoteException, ServiceException {
+	/**
+	 * 
+	 * @param carId
+	 * @param login
+	 * @param password
+	 * @return 0 amount not available -1 carId do not exist -2 wrong login, password -3 car not sallable  
+	 * @throws RemoteException
+	 * @throws ServiceException
+	 */
+	public int buyCar(long carId, String login, String password) throws RemoteException, ServiceException {
 		var car = cars.getCar(carId);
-		if (car == null || !bank.isAnAccount(login, password) || !car.isSellable()) return false;
+		
+		if (car == null) {
+			return -1;
+		}
+		if (!bank.isAnAccount(login, password)) {
+			return -2;
+		}
+		if (!car.isSellable()) {
+			return -3;
+		}
+		
+		
 		var p = car.getSellPrice();
+
 		if(bank.amountAvailable(login, password, p)) {
 			bank.send(login, password, p);
 			cars.removeCar(carId);
-			removeCart(carId);
-			return true;
-		} else {
-			return false;
+			removeBasket(carId);
+			return 1;
+		}else {
+			return 0;
 		}
 		
 	}
@@ -90,31 +113,30 @@ public class Service {
 		return c.activeCurrencies("");
 	}
 	
-	public boolean addCart(long carId) throws RemoteException {
+	public boolean addBasket(long carId) throws RemoteException {
 		var car = cars.getCar(carId);
 		if (car == null || !car.isSellable()) return false;
 		
-		return cart.add(carId);
+		return basket.add(carId);
 	}
 	
-	public boolean removeCart(long carId) {
-		return cart.remove(carId);
+	public boolean removeBasket(long carId) {
+		return basket.remove(carId);
 	}
 	
-	public boolean inCart(long carId) {
-		return cart.contains(carId);
+	public boolean isInBasket(long carId) {
+		return basket.contains(carId);
 	}
 	
-	public String cartToJson() throws RemoteException {
+	public String basketToJson() throws RemoteException {
 		var sj = new StringJoiner(", ", "[", "]");
-		for (Long carId : cart) {
+		for (Long carId : basket) {
 			var car = cars.getCar(carId);
 			sj.add(car.toJson(carId));
 		}
 		
-		return "{" + sj.toString() + "}";
+		return "{ \"cars\" : " + sj.toString() + "}";
 	}
-	
 	
 
 }
